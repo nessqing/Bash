@@ -1,0 +1,27 @@
+#!/bin/bash 
+
+<<comment
+for i in {1..5}
+do
+echo "hi" $i
+done
+comment
+
+
+#<<commnet
+for i in /dev/sd[a-z]
+do
+echo -n "get " 
+# todo, concat in a line
+smartctl -a -d sat $i |grep -i firm
+done
+
+echo "-----------------------------------"
+lsscsi -tis |grep -i sd | wc -l
+#commnet
+
+#smartctl -a -d sat /dev/sda |grep -i firm >> /root/Desktop/fwcheck.txt
+#smartctl -a -d sat /dev/sdb |grep -i firm >> /root/Desktop/fwcheck.txt
+#smartctl -a -d sat /dev/sdc |grep -i firm >> /root/Desktop/fwcheck.txt
+#smartctl -a -d sat /dev/sdd |grep -i firm >> /root/Desktop/fwcheck.txt
+
